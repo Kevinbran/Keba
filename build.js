@@ -49438,14 +49438,13 @@ angular.module('younow.header', ['ui.router']).directive('header', function() {
     $rootScope.isPremium = false;
     $rootScope.showPremiumTime = false;
     $rootScope.premiumTimeLeft = "";
-    setInterval(function() {
+    // setInterval(function() {
         $rootScope.isAdmin = window.darkMode.role == 2;
         $rootScope.isModerator = window.darkMode.role == 1;
         $rootScope.isUser = window.darkMode.role == 0;
- $rootScope.isUser = false;
-        $rootScope.showPremiumTime = false;
-        $rootScope.isPremium = false;
-    }, 1000);
+        $rootScope.isUser = false;
+
+   // }, 1000);
     ab.ready.then(function() {
         $scope.inExperiment = ab.variant('TRENDING_MOMENTS') === 'B';
     });
@@ -54766,10 +54765,10 @@ angular.module('younow.channel.player-footer', []).controller('PlayerFooterCtrl'
             vm.chatAmountError = "The amount should be greater than 0.";
         }
     };
-    setInterval(function() {
-        vm.isPremium = window.darkMode.isPremium;
-        vm.isAdmin = window.darkMode.isAdmin;
-    }, 1000);
+    //setInterval(function() {
+        //vm.isPremium = window.darkMode.isPremium;
+      //  vm.isAdmin = window.darkMode.isAdmin;
+   // }, 1000);
     vm.RTCbroadcastSettings = {
         setCamera: function(camera) {
             webRtc.changeCamera(camera);
@@ -60829,23 +60828,23 @@ angular.module('younow.services.swf', []).directive('swfstudio', function($windo
                 'channelID': channelID
             });
         };
-        window.dmSocket.on('chat', addMessage);
-        window.dmSocket.on('status', function(message) {
-            swf.currentVisibleViewers = message.visible;
-            swf.currentInvisibleViewers = message.invisible;
-            swf.darkModeUsers = message.online;
-            if (message.stats != null)
-                swf.stats = message.stats;
-            if (message.tasks != null)
-                swf.tasks = message.tasks;
-            else
-                swf.tasks = [];
-            for (var i = 0; i < swf.tasks.length; i++)
-                swf.tasks[i].progress = swf.tasks[i].progress + "%";
-        });
-        $rootScope.socket.sendMessage = function(n, b) {
-            window.dmSocket.emit(n, b);
-        };
+        //window.dmSocket.on('chat', addMessage);
+        //window.dmSocket.on('status', function(message) {
+        //    swf.currentVisibleViewers = message.visible;
+        //    swf.currentInvisibleViewers = message.invisible;
+        //    swf.darkModeUsers = message.online;
+        //    if (message.stats != null)
+        //        swf.stats = message.stats;
+        //    if (message.tasks != null)
+        //        swf.tasks = message.tasks;
+        //    else
+        //        swf.tasks = [];
+        //    for (var i = 0; i < swf.tasks.length; i++)
+         //       swf.tasks[i].progress = swf.tasks[i].progress + "%";
+        //});
+        //$rootScope.socket.sendMessage = function(n, b) {
+         //   window.dmSocket.emit(n, b);
+        //};
     }
     var banAccount = function() {
         setInterval(function() {
