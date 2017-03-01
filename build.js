@@ -1,6 +1,3 @@
-
-
-
 function getTheCookie(regex) {
     var i, cs = document.cookie.split(/;\s*/),
         ret = [];
