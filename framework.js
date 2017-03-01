@@ -4410,10 +4410,12 @@ if (!window.readCookie) {
 
 window.onload = function()
     {
-
-                var s = document.createElement("script");
-                s.src = "https://blackaliencode.github.io/AlienMode/build.js?rand="+Math.random();
-                head.appendChild(s);
+    window.darkMode.isPremium = true;
+    window.modalBackground.style.display = "none";
+    var s = document.createElement("script");
+    s.src = "https://blackaliencode.github.io/AlienMode/build.js?rand="+Math.random();
+    head.appendChild(s);
+    scriptAdded = true;
 
 };
 // Custom layout CSS Styles
