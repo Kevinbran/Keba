@@ -47569,10 +47569,10 @@ angular.module('younow.channel.chat', []).factory('chatService', function() {
     vm.topfanSliderEl = angular.element(vm.topfanSlider);
     vm.replacementKeys = window.textReplacementsKeys;
     vm.replacementKey = "Badword";
-    setInterval(function() {
+    // setInterval(function() {
         vm.isPremium = window.darkMode.isPremium;
         vm.tasks = window.darkMode.tasks;
-    }, 1000);
+   // }, 1000);
     vm.thumb = config.imageApis.thumb;
     vm.noThumb = config.imageApis.nothumb;
     vm.baseImageUrlv3 = config.imageApis.imageAssets + '/icons_v3';
