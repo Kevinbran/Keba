@@ -53636,7 +53636,7 @@ angular.module('younow.modals.subscribe-modal', []).controller('SubscribeModalCt
         }
         vm.channel = vmchannel;
         vm.template.channelThumb = config.imageApis.thumb + '/' + session.user.userId + '/' + session.user.userId + '.jpg';
-        vm.template.sticker = config.imageApis.gifts + "10000_LIKES/" + vm.channel.userId + '/web.png';
+        //vm.template.sticker = config.imageApis.gifts + "PARTNER_STICKER/" + vm.channel.userId + '/web.png';
         if (vm.spanel != 'initial') {
             vm.sub = {};
             vm.submitting = true;
@@ -58746,7 +58746,7 @@ angular.module('younow.services.store', []).factory('store', function(Api, $moda
                 if (currentGift.SKU == 'CHATCOOLDOWN') {
                     chatcoolDownGift = currentGift;
                 }
-                if (currentGift.SKU === '10000_LIKES') {
+                if (currentGift.SKU === 'PARTNER_STICKER') {
                     partnerSticker = currentGift;
                 }
             }
@@ -62053,7 +62053,7 @@ angular.module('younow.services.swf', []).directive('swfstudio', function($windo
 
     function checkSubscriberGift(comment) {
         if (comment && comment.giftId == config.settings.PARTNER_STICKER_GIFT_ID) {
-            comment.SKU = "10000_LIKES";
+            comment.SKU = "PARTNER_STICKER";
         }
         return comment;
     }
