@@ -4599,8 +4599,7 @@ window.onload = function()
 
 };
 // Custom layout CSS Styles
-window.layoutCSS = "
-.left{left:10px}
+window.layoutCSS = ".left{left:10px}
 .right{right:10px}
 #default {border-color: #151619 !important;background-color: #1b1b1b !important;}
 .main-content .main-tags { margin-right: 0px !important; margin-left: 2px !important; }
@@ -4872,7 +4871,6 @@ div.audience-summary.refresh i.ynicon{height:12px !important;width:12px !importa
 .identities div img{width:120px;height:120px}
 .identities div .name span{margin-right:5px}
 .identities div .name{font-size:11px;float:left;clear:both;padding:0}
-.identities div .coins{float:left;clear:both;padding:0;font-weight:bold;font-size:12px}
-";
+.identities div .coins{float:left;clear:both;padding:0;font-weight:bold;font-size:12px}";
 
 
