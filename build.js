@@ -58746,7 +58746,7 @@ angular.module('younow.services.store', []).factory('store', function(Api, $moda
                 if (currentGift.SKU == 'CHATCOOLDOWN') {
                     chatcoolDownGift = currentGift;
                 }
-                if (currentGift.SKU === 'PARTNER_STICKER') {
+                if (currentGift.SKU === '10000_LIKES') {
                     partnerSticker = currentGift;
                 }
             }
@@ -62053,7 +62053,7 @@ angular.module('younow.services.swf', []).directive('swfstudio', function($windo
 
     function checkSubscriberGift(comment) {
         if (comment && comment.giftId == config.settings.PARTNER_STICKER_GIFT_ID) {
-            comment.SKU = "PARTNER_STICKER";
+            comment.SKU = "10000_LIKES";
         }
         return comment;
     }
