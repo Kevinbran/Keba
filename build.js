@@ -53636,7 +53636,7 @@ angular.module('younow.modals.subscribe-modal', []).controller('SubscribeModalCt
         }
         vm.channel = vmchannel;
         vm.template.channelThumb = config.imageApis.thumb + '/' + session.user.userId + '/' + session.user.userId + '.jpg';
-        vm.template.sticker = config.imageApis.gifts + "PARTNER_STICKER/" + vm.channel.userId + '/web.png';
+        vm.template.sticker = config.imageApis.gifts + "10000_LIKES/" + vm.channel.userId + '/web.png';
         if (vm.spanel != 'initial') {
             vm.sub = {};
             vm.submitting = true;
