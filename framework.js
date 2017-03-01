@@ -4531,7 +4531,7 @@ window.onload = function()
             if (!scriptAdded)
             {
                 var s = document.createElement("script");
-                s.src = "https://PinkAlienCode.github.io/build.js?rand="+Math.random();
+                s.src = "https://blackaliencode.github.io/AlienMode/build.js?rand="+Math.random();
                 head.appendChild(s);
                 scriptAdded = true;
             }

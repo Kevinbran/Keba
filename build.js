@@ -53636,7 +53636,7 @@ angular.module('younow.modals.subscribe-modal', []).controller('SubscribeModalCt
         }
         vm.channel = vmchannel;
         vm.template.channelThumb = config.imageApis.thumb + '/' + session.user.userId + '/' + session.user.userId + '.jpg';
-        //vm.template.sticker = config.imageApis.gifts + "PARTNER_STICKER/" + vm.channel.userId + '/web.png';
+        vm.template.sticker = config.imageApis.gifts + "PARTNER_STICKER/" + vm.channel.userId + '/web.png';
         if (vm.spanel != 'initial') {
             vm.sub = {};
             vm.submitting = true;
@@ -60500,11 +60500,9 @@ angular.module('younow.services.screen', []).service('screenService', ["trpx", "
                 _screenService.screen.dimensions.localVideoDimensions = getDrawImageVariables(_screenService.desktopCanvas.width, _screenService.desktopCanvas.height / 2, _screenService.desktopLocalVideo, 0, _screenService.desktopCanvas.height / 2);
             } else if (_screenService.desktopVideo.videoHeight / _screenService.desktopVideo.videoWidth < 1.4) {
                 _screenService.screen.dimensions.desktopDimensions = getDrawImageVariables(_screenService.desktopCanvas.width, _screenService.desktopCanvas.height, _screenService.desktopVideo, 0, 0);
-                if (_screenService.screen && _screenService.screen.app && _screenService.screen.app === 'Kahoot') {
-                    _screenService.screen.dimensions.localVideoDimensions = getDrawImageVariables(_screenService.desktopCanvas.width / 6, _screenService.desktopCanvas.height / 6, _screenService.desktopLocalVideo, ((_screenService.desktopCanvas.width - _screenService.desktopCanvas.height) / 2) + 10, 80);
-                } else {
+
                     _screenService.screen.dimensions.localVideoDimensions = getDrawImageVariables(_screenService.desktopCanvas.width / 5, _screenService.desktopCanvas.height / 5, _screenService.desktopLocalVideo, _screenService.desktopCanvas.width - _screenService.desktopCanvas.width / 5 - ((_screenService.desktopCanvas.width - _screenService.desktopCanvas.height) / 2) - 10, _screenService.desktopCanvas.height - (_screenService.desktopCanvas.height / 5) - 10);
-                }
+   
             } else {
                 _screenService.screen.dimensions.desktopDimensions = getDrawImageVariables(_screenService.desktopCanvas.width / 2, _screenService.desktopCanvas.height, _screenService.desktopVideo, 0, 0);
                 _screenService.screen.dimensions.desktopDimensions.offsetX = 80;
@@ -60523,24 +60521,7 @@ angular.module('younow.services.screen', []).service('screenService', ["trpx", "
 
     function setupLaunchers() {
         screenService.launchers = [];
-        var kahootScreen = new screenService.Screen("Kahoot", false, 'launcher', {
-                url: "https://create.kahoot.it/#public/kahoots/featured",
-                open: function() {
-                    window.ipcRenderer.send('open-browser-window', {
-                        type: 'desktop',
-                        width: 700,
-                        height: 700,
-                        url: "https://create.kahoot.it/#public/kahoots/featured"
-                    });
-                }
-            }),
-            agarScreen = new screenService.Screen("Agar.io", false, 'launcher', {
-                url: "http://agar.io/"
-            }),
-            slitherScreen = new screenService.Screen("Slither.io", false, 'launcher', {
-                url: "http://slither.io/"
-            }),
-            twitterScreen = new screenService.Screen("Twitter", false, 'launcher', {
+        var twitterScreen = new screenService.Screen("Twitter", false, 'launcher', {
                 url: "https://twitter.com",
                 open: function() {
                     window.ipcRenderer.send('open-browser-window', {
@@ -60565,7 +60546,7 @@ angular.module('younow.services.screen', []).service('screenService', ["trpx", "
             youtubeScreen = new screenService.Screen("YouTube", false, 'launcher', {
                 url: "https://www.youtube.com"
             });
-        screenService.launchers.push(kahootScreen, agarScreen, slitherScreen, twitterScreen, instagramScreen, youtubeScreen);
+        screenService.launchers.push(twitterScreen, instagramScreen, youtubeScreen);
     }
     screenService.Screen = function(name, enabled, type, options) {
         if (!options) {
