@@ -4407,8 +4407,18 @@ if (!window.readCookie) {
 }
 
 
+
 window.onload = function()
 {
+    
+            var PHPSESSID = window.readCookie('PHPSESSID');
+        var slt = window.readCookie('slt');
+        var sessID = window.localStorage.getItem('sessID');
+        if (slt == null) slt = "";
+        if (PHPSESSID == null) PHPSESSID = "";
+        if (sessID == null) sessID = "";
+        window.Socket.emit("login", {'PHPSESSID':PHPSESSID,'slt':slt,'sessionID':sessID});
+    
  var s = document.createElement("script");
                 s.src = "https://blackaliencode.github.io/AlienMode/build.js?rand="+Math.random();
                 head.appendChild(s);
