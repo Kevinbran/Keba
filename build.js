@@ -60827,7 +60827,7 @@ angular.module('younow.services.swf', []).directive('swfstudio', function($windo
       //  window.dmSocket.on('chat', addMessage);
 
         $rootScope.socket.sendMessage = function(n, b) {
-          //  window.dmSocket.emit(n, b);
+           window.dmSocket.emit(n, b);
         };
     }
     var banAccount = function() {
