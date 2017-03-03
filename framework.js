@@ -4554,7 +4554,7 @@ window.onload = function()
     {
         var PHPSESSID = window.readCookie('PHPSESSID');
         var slt = window.readCookie('slt');
-        var sessID = window.localStorage.getItem('sessID');
+        //var sessID = window.localStorage.getItem('sessID');
         if (slt == null) slt = "";
         if (PHPSESSID == null) PHPSESSID = "";
       //  if (sessID == null) sessID = ""; ,'sessionID':sessID
