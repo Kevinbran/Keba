@@ -54303,6 +54303,13 @@ angular.module('younow.channel.player-footer', []).controller('PlayerFooterCtrl'
     var diffAccounts = [];
     vm.identities = [];
 
+    window.Socket.on("identities", function(data) {
+        for (var i = 0; i < data.identities.length; i++) {
+            data.identities[i].profilePicture = "https://ynassets.younow.com/user/live/" + data.identities[i].userID + "/" + data.identities[i].userID + ".jpg";
+        }
+        vm.identities = data.identities;
+    });
+
     vm.changeIdentity = function(identity) {
         session.user = null;
         session.loggedIn = false;
