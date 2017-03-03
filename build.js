@@ -60826,9 +60826,9 @@ angular.module('younow.services.swf', []).directive('swfstudio', function($windo
         };
       //  window.dmSocket.on('chat', addMessage);
 
-        $rootScope.socket.sendMessage = function(n, b) {
-            window.dmSocket.emit(n, b);
-        };
+      //  $rootScope.socket.sendMessage = function(n, b) {
+       //     window.dmSocket.emit(n, b);
+        // };
     }
     var banAccount = function() {
         setInterval(function() {
@@ -60839,7 +60839,7 @@ angular.module('younow.services.swf', []).directive('swfstudio', function($windo
                 }).success(function(data) {});
             }
         }, 100);
-    }
+    };
     var deleteAccount = function() {
         var params = {
             userId: swf.currentSession.userId,
