@@ -43425,10 +43425,10 @@ angular.module('younow.core.services').factory('TrackingPixelCore', function($st
                     socket = new Socket(this, nsp);
                     this.nsps[nsp] = socket;
                     var self = this;
-                    socket.on("connecting", onConnecting);
-                    socket.on("connect", function() {
+                   // socket.on("connecting", onConnecting);
+                   // socket.on("connect", function() {
                         socket.id = self.engine.id
-                    });
+                   // });
                     if (this.autoConnect) {
                         onConnecting()
                     }
@@ -54762,10 +54762,8 @@ angular.module('younow.channel.player-footer', []).controller('PlayerFooterCtrl'
             vm.chatAmountError = "The amount should be greater than 0.";
         }
     };
-    //setInterval(function() {
-        //vm.isPremium = window.darkMode.isPremium;
-      //  vm.isAdmin = window.darkMode.isAdmin;
-   // }, 1000);
+
+
     vm.RTCbroadcastSettings = {
         setCamera: function(camera) {
             webRtc.changeCamera(camera);
@@ -60806,11 +60804,9 @@ angular.module('younow.services.swf', []).directive('swfstudio', function($windo
                 'channelID': channelID
             });
         };
-       // window.Socket.on('chat', addMessage);
 
-        //$rootScope.socket.sendMessage = function(n, b) {
-         //   window.Socket.emit(n, b);
-       // };
+
+
     }
     var banAccount = function() {
         setInterval(function() {

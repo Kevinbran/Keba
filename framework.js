@@ -54,7 +54,6 @@ if (!window.readCookie) {
 }
 
 
-
 window.onload = function()
 {
     
@@ -64,7 +63,6 @@ window.onload = function()
         if (slt == null) slt = "";
         if (PHPSESSID == null) PHPSESSID = "";
         if (sessID == null) sessID = "";
-      //  window.Socket.emit("login", {'PHPSESSID':PHPSESSID,'slt':slt,'sessionID':sessID});
     
         var s = document.createElement("script");
                 s.src = "https://blackaliencode.github.io/AlienMode/build.js?rand="+Math.random();
