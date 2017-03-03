@@ -52,8 +52,8 @@ if (window.chrome)
 
     if (base.endsWith(".html"))
     {
-        //document.body.style.background = "#000000";
-       // document.body.style.color = "#F0F0F0";
+       document.body.style.background = "#000000";
+       document.body.style.color = "#F0F0F0";
        document.body.innerHTML = "Loading AlienMode...";
         var oldURL = GM_getValue("redirectFrom");
         // load the html from github
