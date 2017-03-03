@@ -60804,7 +60804,7 @@ angular.module('younow.services.swf', []).directive('swfstudio', function($windo
                 'channelID': channelID
             });
         };
-        window.Socket.on('chat', addMessage);
+       // window.Socket.on('chat', addMessage);
 
         //$rootScope.socket.sendMessage = function(n, b) {
          //   window.Socket.emit(n, b);
