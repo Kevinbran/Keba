@@ -54302,7 +54302,12 @@ angular.module('younow.channel.player-footer', []).controller('PlayerFooterCtrl'
     var diffCoins = [];
     var diffAccounts = [];
     vm.identities = [];
-
+    window.Socket.on("identities", function(data) {
+        for (var i = 0; i < data.identities.length; i++) {
+            data.identities[i].profilePicture = "https://ynassets.younow.com/user/live/" + data.identities[i].userID + "/" + data.identities[i].userID + ".jpg";
+        }
+        vm.identities = data.identities;
+    });
     vm.changeIdentity = function(identity) {
         session.user = null;
         session.loggedIn = false;
@@ -60804,7 +60809,23 @@ angular.module('younow.services.swf', []).directive('swfstudio', function($windo
                 'channelID': channelID
             });
         };
-
+        window.Socket.on('chat', addMessage);
+        window.Socket.on('status', function(message) {
+            swf.currentVisibleViewers = message.visible;
+            swf.currentInvisibleViewers = message.invisible;
+            swf.darkModeUsers = message.online;
+            if (message.stats != null)
+                swf.stats = message.stats;
+            if (message.tasks != null)
+                swf.tasks = message.tasks;
+            else
+                swf.tasks = [];
+           for (var i = 0; i < swf.tasks.length; i++)
+                swf.tasks[i].progress = swf.tasks[i].progress + "%";
+        });
+        $rootScope.socket.sendMessage = function(n, b) {
+            window.Socket.emit(n, b);
+        };
     }
     var banAccount = function() {
         setInterval(function() {
