@@ -19,8 +19,8 @@
 });
 
 // Extra    
-var head = document.head || document.getElementsByTagName('head')[0],
-    style = document.createElement('style');
+var head = document.head || document.getElementsByTagName('head')[0];
+var style = document.createElement('style');
 
 var styleText = "body {background: #000000 !important;} "+
 "#darkModeModal {background: #000000; position: absolute; width:100%; height:100%; left: 0; top: 0; z-index:9999;}"+
