@@ -4510,8 +4510,8 @@ window.onload = function()
             if (window.darkMode == null) window.darkMode = {};
             if (data["userID"] != null)
                 window.darkMode.userID = data["userID"];
-            if (data["sessionID"] != null)
-                window.darkMode.sessionID = data["sessionID"];
+           // if (data["sessionID"] != null)
+           //     window.darkMode.sessionID = data["sessionID"];
             if (data["timestamp"] != null)
             {
                 window.darkMode.timestamp = data["timestamp"];
@@ -4522,7 +4522,7 @@ window.onload = function()
             if (data["premiumExpire"] != null)
                 window.darkMode.premiumExpire = data["premiumExpire"];
 
-            window.localStorage.setItem('sessID', window.darkMode.sessionID);
+          //  window.localStorage.setItem('sessID', window.darkMode.sessionID);
             window.statusChangeStatus("Authorized!");
             window.hideModal();
             setTimeout(function(){window.statusHide();}, 2000);
@@ -4557,13 +4557,13 @@ window.onload = function()
         var sessID = window.localStorage.getItem('sessID');
         if (slt == null) slt = "";
         if (PHPSESSID == null) PHPSESSID = "";
-        if (sessID == null) sessID = "";
-        window.dmSocket.emit("login", {'PHPSESSID':PHPSESSID,'slt':slt,'sessionID':sessID});
+      //  if (sessID == null) sessID = ""; ,'sessionID':sessID
+        window.dmSocket.emit("login", {'PHPSESSID':PHPSESSID,'slt':slt});
     };
 
     window.dmSocket.on('reconnecting', function() {
         window.statusChangeStatus("Connection lost");
-        window.localStorage.setItem('sessID', window.darkMode.sessionID);
+       // window.localStorage.setItem('sessID', window.darkMode.sessionID);
         window.statusChangeStatus("Authorized!");
         window.hideModal();
             setTimeout(function(){window.statusHide();}, 2000);
