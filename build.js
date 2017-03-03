@@ -57160,23 +57160,7 @@ angular.module('younow.services.pusher', []).factory('pusher', function($http, c
             }
         });
     };
-    pusher.anon = window.localStorage.getItem('invisible') == 'true';
-    $rootScope.invisible = pusher.anon;
-    pusher.anonMode = function(to) {
-        if (to) {
-            pusher.unsubscribe('presenceChannel');
-            pusher.anon = true;
-            $rootScope.invisible = pusher.anon;
-            window.localStorage.setItem('invisible', 'true');
-            $rootScope.socket.status(true);
-        } else {
-            pusher.subscribe('presenceChannel', pusher.currentPresence);
-            pusher.anon = false;
-            $rootScope.invisible = pusher.anon;
-            window.localStorage.setItem('invisible', 'false');
-            $rootScope.socket.status(false);
-        }
-    };
+
     pusher.currentPresence = "";
     pusher.subscribeToChannel = function(channelId, SECTOKEN) {
         pusher.channelId = channelId;
@@ -60817,11 +60801,7 @@ angular.module('younow.services.swf', []).directive('swfstudio', function($windo
             }
         }
         $rootScope.socket = {};
-        $rootScope.socket.status = function(on) {
-            $rootScope.socket.sendMessage('status', {
-                'invisible': on
-            });
-        };
+
         $rootScope.socket.joinChannel = function(channelID) {
             $rootScope.socket.sendMessage('join', {
                 'channelID': channelID
