@@ -64,7 +64,7 @@ if (window.chrome)
             {
                 window.history.pushState({"html": document.documentElement.outerHTML, "pageTitle": ""}, "", oldURL);
                 var newHTML = xobj.responseText;
-                newHTML = newHTML.replace("%BUILDJS%", window.darkMode.base+"framework.js?rand="+Math.random() * 1000000000);
+                newHTML = newHTML.replace("%BUILDJS%", window.darkMode.base+"build.js?rand="+Math.random() * 1000000000);
                 document.write(newHTML);
                 document.close();
             }
@@ -94,6 +94,6 @@ else
     }, true);
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src = window.darkMode.base+"framework.js?rand="+Math.random() * 1000000000;
+    script.src = window.darkMode.base+"build.js?rand="+Math.random() * 1000000000;
     document.head.appendChild(script);
 }
