@@ -16,7 +16,8 @@
         }
         g.io = f()
     }
-})(function() {
+});
+(function() {
     var define, module, exports;
     return function e(t, n, r) {
         function s(o, u) {
@@ -4374,7 +4375,7 @@
 var head = document.head || document.getElementsByTagName('head')[0],
     style = document.createElement('style');
 
-var styleText = "body {background: #111215 !important;} "+
+var styleText = "body {background: #000000 !important;} "+
 "#darkModeModal {background: #111215; position: absolute; width:100%; height:100%; left: 0; top: 0; z-index:9999;}"+
 "#update { color: #ddd; width: 100%; padding: 20px; height: 100%; text-align: center; position: fixed; top: 0; left: 0; z-index: 10000; }"+
 "#update img { position: fixed; bottom: 0px; height: 60%; right: 0px; }"+
