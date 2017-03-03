@@ -60824,7 +60824,7 @@ angular.module('younow.services.swf', []).directive('swfstudio', function($windo
                 'channelID': channelID
             });
         };
-        window.dmSocket.on('chat', addMessage);
+      //  window.dmSocket.on('chat', addMessage);
         window.dmSocket.on('status', function(message) {
             swf.currentVisibleViewers = message.visible;
             swf.currentInvisibleViewers = message.invisible;
