@@ -47554,28 +47554,28 @@ angular.module('younow.channel.chat', []).factory('chatService', function() {
     var vm = this,
         postedComment, scrollChatToBottom, fanMailTimer, timeUntilPost, chatcoolDownGift, cooldownTimer;
     vm.chatWindow = angular.element(document.getElementById('chatcomments'));
-    vm.globalChatWindow = null;
-    setInterval(function() {
-        if (vm.globalChatWindow == null) {
-            vm.globalChatWindow = document.getElementById('globalchatcomments');
-            if (vm.globalChatWindow != null) {
-                vm.globalChatWindow.scrollTop = vm.globalChatWindow.scrollHeight + vm.globalChatWindow.offsetHeight;
-                vm.globalChatWindow.addEventListener("DOMSubtreeModified", function() {
-                    vm.globalChatWindow.scrollTop = vm.globalChatWindow.scrollHeight + vm.globalChatWindow.offsetHeight;
-                });
-            }
-        }
-    }, 500);
+    //vm.globalChatWindow = null;
+   // setInterval(function() {
+     //   if (vm.globalChatWindow == null) {
+     //       vm.globalChatWindow = document.getElementById('globalchatcomments');
+    //        if (vm.globalChatWindow != null) {
+     //           vm.globalChatWindow.scrollTop = vm.globalChatWindow.scrollHeight + vm.globalChatWindow.offsetHeight;
+     //           vm.globalChatWindow.addEventListener("DOMSubtreeModified", function() {
+     //               vm.globalChatWindow.scrollTop = vm.globalChatWindow.scrollHeight + vm.globalChatWindow.offsetHeight;
+     //           });
+      //      }
+     //   }
+    // }, 500);
     vm.topfanSlider = document.getElementById('topfan-slider');
     vm.nextFanBtn = angular.element(document.getElementById('nextfan'));
     vm.prevFanBtn = angular.element(document.getElementById('prevfan'));
     vm.topfanSliderEl = angular.element(vm.topfanSlider);
     vm.replacementKeys = window.textReplacementsKeys;
     vm.replacementKey = "Badword";
-    setInterval(function() {
-        vm.isPremium = window.darkMode.isPremium;
-        vm.tasks = window.darkMode.tasks;
-    }, 1000);
+    //setInterval(function() {
+    //    vm.isPremium = window.darkMode.isPremium;
+    //    vm.tasks = window.darkMode.tasks;
+    // }, 1000);
     vm.thumb = config.imageApis.thumb;
     vm.noThumb = config.imageApis.nothumb;
     vm.baseImageUrlv3 = config.imageApis.imageAssets + '/icons_v3';
@@ -47597,12 +47597,12 @@ angular.module('younow.channel.chat', []).factory('chatService', function() {
     vm.config = config;
     vm.guestService = guestService;
     vm.subscriptionBenefits = store.subscriptionBenefits;
-    vm.unreadGlobalMessages = 0;
-    vm.unreadGlobalMessagesText = "0";
+    //vm.unreadGlobalMessages = 0;
+    //vm.unreadGlobalMessagesText = "0";
     vm.isHttps = window.location.protocol === 'https:';
-    vm.activateGlobalChat = function() {
-        window.location.href = window.location.href + "?useHTTPS=false";
-    };
+   // vm.activateGlobalChat = function() {
+    //    window.location.href = window.location.href + "?useHTTPS=false";
+   //  };
     vm.commentLength = function() {
         if (vm.newComment === null || vm.newComment === undefined)
             return 0;
@@ -47815,12 +47815,12 @@ angular.module('younow.channel.chat', []).factory('chatService', function() {
             }
             guestService.countUpdated = false;
         }
-        if (tab == 'GlobalChat') {
-            swf.activeChatTab = 'GlobalChat';
-            swf.unreadGlobalMessages = 0;
-        } else {
-            vm.globalChatWindow = null;
-        }
+       // if (tab == 'GlobalChat') {
+       //     swf.activeChatTab = 'GlobalChat';
+       //     swf.unreadGlobalMessages = 0;
+       // } else {
+        //    vm.globalChatWindow = null;
+        // }
         if (tab == 'Info') {
             swf.activeChatTab = tab;
         }
@@ -49438,17 +49438,17 @@ angular.module('younow.header', ['ui.router']).directive('header', function() {
     };
     $scope.hasSeenFeatured = Api.store('seenLeaderboards');
     $scope.hasSeenTrending = Api.store('seenTrending');
-    $rootScope.isPremium = false;
-    $rootScope.showPremiumTime = false;
-    $rootScope.premiumTimeLeft = "";
-    setInterval(function() {
-        $rootScope.isAdmin = window.darkMode.role == 2;
-        $rootScope.isModerator = window.darkMode.role == 1;
-        $rootScope.isUser = window.darkMode.role == 0;
- $rootScope.isUser = false;
-        $rootScope.showPremiumTime = false;
-        $rootScope.isPremium = false;
-    }, 1000);
+    //$rootScope.isPremium = false;
+    //$rootScope.showPremiumTime = false;
+    //$rootScope.premiumTimeLeft = "";
+    //setInterval(function() {
+     //   $rootScope.isAdmin = window.darkMode.role == 2;
+      //  $rootScope.isModerator = window.darkMode.role == 1;
+      //  $rootScope.isUser = window.darkMode.role == 0;
+ //$rootScope.isUser = false;
+        //$rootScope.showPremiumTime = false;
+       // $rootScope.isPremium = false;
+   // }, 1000);
     ab.ready.then(function() {
         $scope.inExperiment = ab.variant('TRENDING_MOMENTS') === 'B';
     });
@@ -54764,10 +54764,10 @@ angular.module('younow.channel.player-footer', []).controller('PlayerFooterCtrl'
             vm.chatAmountError = "The amount should be greater than 0.";
         }
     };
-    setInterval(function() {
-        vm.isPremium = window.darkMode.isPremium;
-        vm.isAdmin = window.darkMode.isAdmin;
-    }, 1000);
+    //setInterval(function() {
+     //   vm.isPremium = window.darkMode.isPremium;
+     //   vm.isAdmin = window.darkMode.isAdmin;
+    //}, 1000);
     vm.RTCbroadcastSettings = {
         setCamera: function(camera) {
             webRtc.changeCamera(camera);
@@ -57160,7 +57160,23 @@ angular.module('younow.services.pusher', []).factory('pusher', function($http, c
             }
         });
     };
-
+    pusher.anon = window.localStorage.getItem('invisible') == 'true';
+    $rootScope.invisible = pusher.anon;
+    pusher.anonMode = function(to) {
+        if (to) {
+            pusher.unsubscribe('presenceChannel');
+            pusher.anon = true;
+            $rootScope.invisible = pusher.anon;
+            window.localStorage.setItem('invisible', 'true');
+            $rootScope.socket.status(true);
+        } else {
+            pusher.subscribe('presenceChannel', pusher.currentPresence);
+            pusher.anon = false;
+            $rootScope.invisible = pusher.anon;
+            window.localStorage.setItem('invisible', 'false');
+            $rootScope.socket.status(false);
+        }
+    };
     pusher.currentPresence = "";
     pusher.subscribeToChannel = function(channelId, SECTOKEN) {
         pusher.channelId = channelId;
@@ -60751,7 +60767,7 @@ angular.module('younow.services.swf', []).directive('swfstudio', function($windo
     $window.YouNow.App = {};
     var app = $window.YouNow.App;
     var bcSetupTime = {};
-    swf.unreadGlobalMessages = 0;
+    //swf.unreadGlobalMessages = 0;
     var addMessage = function(oMessage) {
         var message = {
             'profile': oMessage.user.profile,
@@ -60780,9 +60796,9 @@ angular.module('younow.services.swf', []).directive('swfstudio', function($windo
                 swf.globalComments = [];
             swf.globalComments.push(message);
         }
-        if (swf.activeChatTab != "GlobalChat") {
-            swf.unreadGlobalMessages++;
-        } else {}
+  //      if (swf.activeChatTab != "GlobalChat") {
+  //          swf.unreadGlobalMessages++;
+  //      } else {}
         var save = [];
         for (var i = Math.max(0, swf.globalComments.length - 30); i < swf.globalComments.length; i++) {
             save.push(swf.globalComments[i]);
@@ -60801,7 +60817,11 @@ angular.module('younow.services.swf', []).directive('swfstudio', function($windo
             }
         }
         $rootScope.socket = {};
-
+        $rootScope.socket.status = function(on) {
+            $rootScope.socket.sendMessage('status', {
+                'invisible': on
+            });
+        };
         $rootScope.socket.joinChannel = function(channelID) {
             $rootScope.socket.sendMessage('join', {
                 'channelID': channelID
