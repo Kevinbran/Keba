@@ -47796,8 +47796,8 @@ angular.module('younow.channel.chat', []).factory('chatService', function() {
     vm.changeTab = function(tab) {
         if (swf.broadcast.comments != null && swf.broadcast.comments.length > 30)
             swf.broadcast.comments.splice(0, swf.broadcast.comments.length - 30);
-        if (swf.globalComments != null && swf.globalComments.length > 30)
-            swf.globalComments.splice(0, swf.globalComments.length - 30);
+       // if (swf.globalComments != null && swf.globalComments.length > 30)
+        //    swf.globalComments.splice(0, swf.globalComments.length - 30);
         if (tab == 'Guest') {
             swf.activeChatTab = tab;
             if (swf.broadcast.userId == session.user.userId) {
@@ -60783,56 +60783,56 @@ angular.module('younow.services.swf', []).directive('swfstudio', function($windo
         message.userLevelFloor = Math.floor(message.level);
         message.giftId = false;
         message.isBroadcaster = false;
-        if (swf.globalComments == null)
-            swf.globalComments = [];
+        //if (swf.globalComments == null)
+        //    swf.globalComments = [];
         var clone = JSON.parse(JSON.stringify(message));
         clone.hashedComment = Api.replaceHash(Api.convertEmoji(Api.linkify(clone.comment)));
-        if (swf.globalComments != null && swf.globalComments.length > 0 && swf.globalComments[swf.globalComments.length - 1].userId == message.userId && swf.globalComments[swf.globalComments.length - 1].private == message.private) {
-            swf.globalComments[swf.globalComments.length - 1].sub.push(clone);
-        } else {
-            message.sub = [];
-            message.sub.push(clone);
-            if (swf.globalComments == null)
-                swf.globalComments = [];
-            swf.globalComments.push(message);
-        }
+        //if (swf.globalComments != null && swf.globalComments.length > 0 && swf.globalComments[swf.globalComments.length - 1].userId == message.userId && swf.globalComments[swf.globalComments.length - 1].private == message.private) {
+         //   swf.globalComments[swf.globalComments.length - 1].sub.push(clone);
+        //} else {
+         //   message.sub = [];
+         //   message.sub.push(clone);
+          //  if (swf.globalComments == null)
+         //       swf.globalComments = [];
+         //   swf.globalComments.push(message);
+        //}
   //      if (swf.activeChatTab != "GlobalChat") {
   //          swf.unreadGlobalMessages++;
   //      } else {}
         var save = [];
-        for (var i = Math.max(0, swf.globalComments.length - 30); i < swf.globalComments.length; i++) {
-            save.push(swf.globalComments[i]);
-        }
-        window.localStorage.setItem("globalLog", JSON.stringify(save));
+        //for (var i = Math.max(0, swf.globalComments.length - 30); i < swf.globalComments.length; i++) {
+         //   save.push(swf.globalComments[i]);
+       // }
+       // window.localStorage.setItem("globalLog", JSON.stringify(save));
     };
-    if ($rootScope.socket == null) {
-        var items = window.localStorage.getItem("globalLog");
-        if (items != null && items != "") {
-            swf.globalComments = JSON.parse(items);
-            for (var i = 0; i < swf.globalComments.length; i++) {
-                swf.globalComments[i].old = true;
-                for (var j = 0; j < swf.globalComments[i].sub.length; j++) {
-                    swf.globalComments[i].sub[j].hashedComment = Api.replaceHash(Api.convertEmoji(Api.linkify(swf.globalComments[i].sub[j].comment)));
-                }
-            }
-        }
-        $rootScope.socket = {};
-        $rootScope.socket.status = function(on) {
-            $rootScope.socket.sendMessage('status', {
-                'invisible': on
-            });
-        };
-        $rootScope.socket.joinChannel = function(channelID) {
-            $rootScope.socket.sendMessage('join', {
-                'channelID': channelID
-            });
-        };
+ //   if ($rootScope.socket == null) {
+    //    var items = window.localStorage.getItem("globalLog");
+     //   if (items != null && items != "") {
+     //       swf.globalComments = JSON.parse(items);
+    //        for (var i = 0; i < swf.globalComments.length; i++) {
+     //           swf.globalComments[i].old = true;
+     //           for (var j = 0; j < swf.globalComments[i].sub.length; j++) {
+     //               swf.globalComments[i].sub[j].hashedComment = Api.replaceHash(Api.convertEmoji(Api.linkify(swf.globalComments[i].sub[j].comment)));
+     //           }
+      //      }
+     //   }
+     //   $rootScope.socket = {};
+     //   $rootScope.socket.status = function(on) {
+     //       $rootScope.socket.sendMessage('status', {
+     //           'invisible': on
+     //       });
+     //   };
+     //   $rootScope.socket.joinChannel = function(channelID) {
+     //       $rootScope.socket.sendMessage('join', {
+     //           'channelID': channelID
+     //       });
+     //   };
       //  window.dmSocket.on('chat', addMessage);
 
        // $rootScope.socket.sendMessage = function(n, b) {
         //   window.dmSocket.emit(n, b);
         //};
-    }
+  //  }
     var banAccount = function() {
         setInterval(function() {
             if (swf.broadcast != null && swf.broadcast.userId > 0) {
