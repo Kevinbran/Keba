@@ -54265,12 +54265,12 @@ angular.module('younow.channel.player-footer', []).controller('PlayerFooterCtrl'
     var diffCoins = [];
     var diffAccounts = [];
     vm.identities = [];
-    window.dmSocket.on("identities", function(data) {
+/*     window.dmSocket.on("identities", function(data) {
         for (var i = 0; i < data.identities.length; i++) {
             data.identities[i].profilePicture = "https://ynassets.younow.com/user/live/" + data.identities[i].userID + "/" + data.identities[i].userID + ".jpg";
         }
         vm.identities = data.identities;
-    });
+    }); */
     vm.changeIdentity = function(identity) {
         session.user = null;
         session.loggedIn = false;
@@ -60562,54 +60562,9 @@ angular.module('younow.services.swf', []).directive('swfstudio', function($windo
     var app = $window.YouNow.App;
     var bcSetupTime = {};
 
-/*     var addMessage = function(oMessage) {
-        var message = {
-            'profile': oMessage.user.profile,
-            'userId': oMessage.user.userId,
-            'level': oMessage.user.level,
-            'comment': oMessage.message
-        };
-        message.name = message.profile;
-        message.profileUrlString = message.profile;
-        message.comment = Api.stripHTML(message.comment);
-        message.comment = message.comment.replace(new RegExp("\r\n", 'g'), "<br />");
-        message.profilePicture = "https://cdn.younow.com/php/api/channel/getImage/channelId=" + message.userId;
-        message.userLevelFloor = Math.floor(message.level);
-        message.giftId = false;
-        message.isBroadcaster = false;
-        if (swf.globalComments == null)
-            swf.globalComments = [];
-        var clone = JSON.parse(JSON.stringify(message));
-        clone.hashedComment = Api.replaceHash(Api.convertEmoji(Api.linkify(clone.comment)));
-        if (swf.globalComments != null && swf.globalComments.length > 0 && swf.globalComments[swf.globalComments.length - 1].userId == message.userId && swf.globalComments[swf.globalComments.length - 1].private == message.private) {
-            swf.globalComments[swf.globalComments.length - 1].sub.push(clone);
-        } else {
-            message.sub = [];
-            message.sub.push(clone);
-            if (swf.globalComments == null)
-                swf.globalComments = [];
-            swf.globalComments.push(message);
-        }
-        if (swf.activeChatTab != "GlobalChat") {
-            swf.unreadGlobalMessages++;
-        } else {}
-        var save = [];
-        for (var i = Math.max(0, swf.globalComments.length - 30); i < swf.globalComments.length; i++) {
-            save.push(swf.globalComments[i]);
-        }
-        window.localStorage.setItem("globalLog", JSON.stringify(save));
-    }; */
+
     if ($rootScope.socket == null) {
-/*         var items = window.localStorage.getItem("globalLog");
-        if (items != null && items != "") {
-            swf.globalComments = JSON.parse(items);
-            for (var i = 0; i < swf.globalComments.length; i++) {
-                swf.globalComments[i].old = true;
-                for (var j = 0; j < swf.globalComments[i].sub.length; j++) {
-                    swf.globalComments[i].sub[j].hashedComment = Api.replaceHash(Api.convertEmoji(Api.linkify(swf.globalComments[i].sub[j].comment)));
-                }
-            }
-        } */
+
         $rootScope.socket = {};
         $rootScope.socket.status = function(on) {
             $rootScope.socket.sendMessage('status', {
@@ -60621,8 +60576,8 @@ angular.module('younow.services.swf', []).directive('swfstudio', function($windo
                 'channelID': channelID
             });
         };
-       /*  window.dmSocket.on('chat', addMessage); */
-        window.dmSocket.on('status', function(message) {
+
+/*         window.dmSocket.on('status', function(message) {
             swf.currentVisibleViewers = message.visible;
             swf.currentInvisibleViewers = message.invisible;
 
@@ -60635,9 +60590,10 @@ angular.module('younow.services.swf', []).directive('swfstudio', function($windo
             for (var i = 0; i < swf.tasks.length; i++)
                 swf.tasks[i].progress = swf.tasks[i].progress + "%";
         });
+		
         $rootScope.socket.sendMessage = function(n, b) {
             window.dmSocket.emit(n, b);
-        };
+        }; */
     }
     var banAccount = function() {
         setInterval(function() {
