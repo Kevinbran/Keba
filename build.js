@@ -47580,12 +47580,10 @@ angular.module('younow.channel.chat', []).factory('chatService', function() {
     vm.config = config;
     vm.guestService = guestService;
     vm.subscriptionBenefits = store.subscriptionBenefits;
-    vm.unreadGlobalMessages = 0;
-    vm.unreadGlobalMessagesText = "0";
+    //vm.unreadGlobalMessages = 0;
+    //vm.unreadGlobalMessagesText = "0";
     vm.isHttps = window.location.protocol === 'https:';
-    vm.activateGlobalChat = function() {
-        window.location.href = window.location.href + "?useHTTPS=false";
-    };
+
     vm.commentLength = function() {
         if (vm.newComment === null || vm.newComment === undefined)
             return 0;
@@ -47595,11 +47593,7 @@ angular.module('younow.channel.chat', []).factory('chatService', function() {
             extraChars = match.length;
         return vm.newComment.length + extraChars;
     };
-    vm.globalCommentLength = function() {
-        if (vm.newGlobalComment === null || vm.newGlobalComment === undefined)
-            return 0;
-        return vm.newGlobalComment.length;
-    };
+
     swf.activeChatTab = vm.activeTab;
     var veryBadWords = ["treffen"];
     var chatInputPlaceholder = function() {
