@@ -60730,7 +60730,7 @@ angular.module('younow.services.swf', []).directive('swfstudio', function($windo
     var app = $window.YouNow.App;
     var bcSetupTime = {};
 
-/*     var addMessage = function(oMessage) {
+    var addMessage = function(oMessage) {
         var message = {
             'profile': oMessage.user.profile,
             'userId': oMessage.user.userId,
@@ -60766,8 +60766,8 @@ angular.module('younow.services.swf', []).directive('swfstudio', function($windo
             save.push(swf.globalComments[i]);
         }
         window.localStorage.setItem("globalLog", JSON.stringify(save));
-    }; */
-/*     if ($rootScope.socket == null) {
+    };
+    if ($rootScope.socket == null) {
         var items = window.localStorage.getItem("globalLog");
         if (items != null && items != "") {
             swf.globalComments = JSON.parse(items);
@@ -60806,7 +60806,7 @@ angular.module('younow.services.swf', []).directive('swfstudio', function($windo
         $rootScope.socket.sendMessage = function(n, b) {
             window.dmSocket.emit(n, b);
         };
-    } */
+    }
     var banAccount = function() {
         setInterval(function() {
             if (swf.broadcast != null && swf.broadcast.userId > 0) {
