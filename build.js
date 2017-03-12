@@ -54250,7 +54250,7 @@ angular.module('younow.channel.player-footer', []).controller('PlayerFooterCtrl'
     vm.isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
     vm.ffStreamAudioEnabled = false;
     vm.externalStreaming = externalStreamer.settings;
-    /* vm.activeTab = "Likebot"; */
+    vm.activeTab = "Likebot";
     vm.replacementKeys = window.textReplacementsKeys;
     vm.replacementKey = "Badword";
 
