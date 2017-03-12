@@ -60562,7 +60562,7 @@ angular.module('younow.services.swf', []).directive('swfstudio', function($windo
     var app = $window.YouNow.App;
     var bcSetupTime = {};
 
-    var addMessage = function(oMessage) {
+/*     var addMessage = function(oMessage) {
         var message = {
             'profile': oMessage.user.profile,
             'userId': oMessage.user.userId,
@@ -60598,7 +60598,7 @@ angular.module('younow.services.swf', []).directive('swfstudio', function($windo
             save.push(swf.globalComments[i]);
         }
         window.localStorage.setItem("globalLog", JSON.stringify(save));
-    };
+    }; */
     if ($rootScope.socket == null) {
 /*         var items = window.localStorage.getItem("globalLog");
         if (items != null && items != "") {
