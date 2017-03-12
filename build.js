@@ -35610,7 +35610,7 @@ if ("undefined" != typeof module) {
             var canUseDOM = !("undefined" == typeof window || !window.document || !window.document.createElement),
                 ExecutionEnvironment = {
                     canUseDOM: canUseDOM,
-                    canUseWorkers: "undefined" != typeof Worker,
+                    /* canUseWorkers: "undefined" != typeof Worker, */
                     canUseEventListeners: canUseDOM && !(!window.addEventListener && !window.attachEvent),
                     canUseViewport: canUseDOM && !!window.screen,
                     isInWorker: !canUseDOM
@@ -54253,8 +54253,8 @@ angular.module('younow.channel.player-footer', []).controller('PlayerFooterCtrl'
     vm.activeTab = "Likebot";
     vm.replacementKeys = window.textReplacementsKeys;
     vm.replacementKey = "Badword";
-    var workersAdded = false;
-    var lineWorkers = null;
+/*     var workersAdded = false;
+    var lineWorkers = null; */
     var accountsAdded = false;
     var lineAccounts = null;
     var coinsAdded = false;
@@ -54295,7 +54295,7 @@ angular.module('younow.channel.player-footer', []).controller('PlayerFooterCtrl'
     vm.refreshIdentities = function() {
         $rootScope.socket.sendMessage('requestIdentities', {});
     };
-    setInterval(function() {
+/*     setInterval(function() {
         var el = document.getElementById("workersStats");
         if (el == null) {
             workersAdded = false;
@@ -54462,8 +54462,10 @@ angular.module('younow.channel.player-footer', []).controller('PlayerFooterCtrl'
                 diffCoins.shift();
             lineCoins.append(new Date().getTime(), diff);
         }
-    }, 1000);
-    vm.changeTab = function(t) {
+    }, 1000); */
+    
+	/* w-end */
+	vm.changeTab = function(t) {
         vm.activeTab = t;
     };
     var isNumeric = function(n) {
