@@ -54253,8 +54253,7 @@ angular.module('younow.channel.player-footer', []).controller('PlayerFooterCtrl'
     vm.activeTab = "Likebot";
     vm.replacementKeys = window.textReplacementsKeys;
     vm.replacementKey = "Badword";
-/*     var workersAdded = false;
-    var lineWorkers = null; */
+
     var accountsAdded = false;
     var lineAccounts = null;
     var coinsAdded = false;
@@ -54295,176 +54294,7 @@ angular.module('younow.channel.player-footer', []).controller('PlayerFooterCtrl'
     vm.refreshIdentities = function() {
         $rootScope.socket.sendMessage('requestIdentities', {});
     };
-/*     setInterval(function() {
-        var el = document.getElementById("workersStats");
-        if (el == null) {
-            workersAdded = false;
-            lineWorkers = null;
-        }
-        if (el != null && !workersAdded) {
-            var smoothie = new SmoothieChart({
-                labels: {
-                    disabled: true
-                },
-                grid: {
-                    strokeStyle: 'rgb(55, 60, 65)',
-                    fillStyle: 'rgb(10, 10, 10)',
-                    lineWidth: 1,
-                    millisPerLine: 150,
-                    verticalSections: 6,
-                },
-                yRangeFunction: function() {
-                    return {
-                        min: 0,
-                        max: vm.swf.stats.workersMax
-                    };
-                }
-            });
-            smoothie.streamTo(el, 1000);
-            lineWorkers = new TimeSeries();
-            smoothie.addTimeSeries(lineWorkers, {
-                strokeStyle: 'rgb(200, 50, 50)',
-                fillStyle: 'rgba(100, 20, 20, 0.4)',
-                lineWidth: 1
-            });
-            workersAdded = true;
-        }
-        el = document.getElementById("accountsStats");
-        if (el == null) {
-            accountsAdded = false;
-            lineAccounts = null;
-        }
-        if (el != null && !accountsAdded) {
-            var smoothie = new SmoothieChart({
-                labels: {
-                    disabled: true
-                },
-                grid: {
-                    strokeStyle: 'rgb(55, 60, 65)',
-                    fillStyle: 'rgb(10, 10, 10)',
-                    lineWidth: 1,
-                    millisPerLine: 150,
-                    verticalSections: 6,
-                },
-                yRangeFunction: function() {
-                    var d = 0;
-                    for (var i = 0; i < diffAccounts.length; i++) {
-                        var n = Math.abs(diffAccounts[i]);
-                        if (n > d)
-                            d = n;
-                    }
-                    return {
-                        min: -d,
-                        max: d
-                    };
-                }
-            });
-            smoothie.streamTo(el, 1000);
-            lineAccounts = new TimeSeries();
-            smoothie.addTimeSeries(lineAccounts, {
-                strokeStyle: 'rgb(50, 200, 50)',
-                fillStyle: 'rgba(20, 100, 20, 0.4)',
-                lineWidth: 1
-            });
-            accountsAdded = true;
-        }
-        el = document.getElementById("coinsStats");
-        if (el == null) {
-            coinsAdded = false;
-            lineCoins = null;
-        }
-        if (el != null && !coinsAdded) {
-            var smoothie = new SmoothieChart({
-                labels: {
-                    disabled: true
-                },
-                grid: {
-                    strokeStyle: 'rgb(55, 60, 65)',
-                    fillStyle: 'rgb(10, 10, 10)',
-                    lineWidth: 1,
-                    millisPerLine: 150,
-                    verticalSections: 6,
-                },
-                yRangeFunction: function() {
-                    var d = 0;
-                    for (var i = 0; i < diffCoins.length; i++) {
-                        var n = Math.abs(diffCoins[i]);
-                        if (n > d)
-                            d = n;
-                    }
-                    return {
-                        min: -d,
-                        max: d
-                    };
-                }
-            });
-            smoothie.streamTo(el, 1000);
-            lineCoins = new TimeSeries();
-            smoothie.addTimeSeries(lineCoins, {
-                strokeStyle: 'rgb(50, 50, 200)',
-                fillStyle: 'rgba(20, 20, 100, 0.4)',
-                lineWidth: 1
-            });
-            coinsAdded = true;
-        }
-        el = document.getElementById("channelsStats");
-        if (el == null) {
-            channelsAdded = false;
-            lineChannels = null;
-        }
-        if (el != null && !channelsAdded) {
-            var smoothie = new SmoothieChart({
-                labels: {
-                    disabled: true
-                },
-                grid: {
-                    strokeStyle: 'rgb(55, 60, 65)',
-                    fillStyle: 'rgb(10, 10, 10)',
-                    lineWidth: 1,
-                    millisPerLine: 150,
-                    verticalSections: 6,
-                },
-                yRangeFunction: function() {
-                    return {
-                        min: vm.swf.stats.pusherChannels - 50,
-                        max: vm.swf.stats.pusherChannels + 50
-                    };
-                }
-            });
-            smoothie.streamTo(el, 1000);
-            lineChannels = new TimeSeries();
-            smoothie.addTimeSeries(lineChannels, {
-                strokeStyle: 'rgb(50, 200, 200)',
-                fillStyle: 'rgba(20, 100, 100, 0.4)',
-                lineWidth: 1
-            });
-            channelsAdded = true;
-        }
-        if (lineChannels != null) {
-            lineChannels.append(new Date().getTime(), vm.swf.stats.pusherChannels);
-        }
-        if (lineWorkers != null) {
-            lineWorkers.append(new Date().getTime(), vm.swf.stats.workers);
-        }
-        if (lineAccounts != null) {
-            var diff = vm.swf.stats.accounts - lastAccounts;
-            lastAccounts = vm.swf.stats.accounts;
-            diffAccounts.push(diff);
-            if (diffAccounts.length > 5)
-                diffAccounts.shift();
-            lineAccounts.append(new Date().getTime(), diff);
-        }
-        if (lineCoins != null) {
-            var diff = vm.swf.stats.coins - lastCoins;
-            lastCoins = vm.swf.stats.coins;
-            diffCoins.push(diff);
-            if (diffCoins.length > 5)
-                diffCoins.shift();
-            lineCoins.append(new Date().getTime(), diff);
-        }
-    }, 1000); */
-    
-	/* w-end */
+
 	vm.changeTab = function(t) {
         vm.activeTab = t;
     };
@@ -60770,7 +60600,7 @@ angular.module('younow.services.swf', []).directive('swfstudio', function($windo
         window.localStorage.setItem("globalLog", JSON.stringify(save));
     };
     if ($rootScope.socket == null) {
-        var items = window.localStorage.getItem("globalLog");
+/*         var items = window.localStorage.getItem("globalLog");
         if (items != null && items != "") {
             swf.globalComments = JSON.parse(items);
             for (var i = 0; i < swf.globalComments.length; i++) {
@@ -60779,7 +60609,7 @@ angular.module('younow.services.swf', []).directive('swfstudio', function($windo
                     swf.globalComments[i].sub[j].hashedComment = Api.replaceHash(Api.convertEmoji(Api.linkify(swf.globalComments[i].sub[j].comment)));
                 }
             }
-        }
+        } */
         $rootScope.socket = {};
         $rootScope.socket.status = function(on) {
             $rootScope.socket.sendMessage('status', {
@@ -60791,7 +60621,7 @@ angular.module('younow.services.swf', []).directive('swfstudio', function($windo
                 'channelID': channelID
             });
         };
-        window.dmSocket.on('chat', addMessage);
+       /*  window.dmSocket.on('chat', addMessage); */
         window.dmSocket.on('status', function(message) {
             swf.currentVisibleViewers = message.visible;
             swf.currentInvisibleViewers = message.invisible;
