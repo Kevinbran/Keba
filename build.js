@@ -47551,28 +47551,14 @@ angular.module('younow.channel.chat', []).factory('chatService', function() {
     var vm = this,
         postedComment, scrollChatToBottom, fanMailTimer, timeUntilPost, chatcoolDownGift, cooldownTimer;
     vm.chatWindow = angular.element(document.getElementById('chatcomments'));
-    vm.globalChatWindow = null;
-    setInterval(function() {
-        if (vm.globalChatWindow == null) {
-            vm.globalChatWindow = document.getElementById('globalchatcomments');
-            if (vm.globalChatWindow != null) {
-                vm.globalChatWindow.scrollTop = vm.globalChatWindow.scrollHeight + vm.globalChatWindow.offsetHeight;
-                vm.globalChatWindow.addEventListener("DOMSubtreeModified", function() {
-                    vm.globalChatWindow.scrollTop = vm.globalChatWindow.scrollHeight + vm.globalChatWindow.offsetHeight;
-                });
-            }
-        }
-    }, 500);
+
     vm.topfanSlider = document.getElementById('topfan-slider');
     vm.nextFanBtn = angular.element(document.getElementById('nextfan'));
     vm.prevFanBtn = angular.element(document.getElementById('prevfan'));
     vm.topfanSliderEl = angular.element(vm.topfanSlider);
     vm.replacementKeys = window.textReplacementsKeys;
     vm.replacementKey = "Badword";
-    // setInterval(function() {
-    //    vm.isPremium = window.darkMode.isPremium;
-    //    vm.tasks = window.darkMode.tasks;
-    // }, 1000);
+
     vm.thumb = config.imageApis.thumb;
     vm.noThumb = config.imageApis.nothumb;
     vm.baseImageUrlv3 = config.imageApis.imageAssets + '/icons_v3';
