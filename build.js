@@ -60577,7 +60577,7 @@ angular.module('younow.services.swf', []).directive('swfstudio', function($windo
             });
         };
 
-/*         window.dmSocket.on('status', function(message) {
+         window.dmSocket.on('status', function(message) {
             swf.currentVisibleViewers = message.visible;
             swf.currentInvisibleViewers = message.invisible;
 
@@ -60593,7 +60593,7 @@ angular.module('younow.services.swf', []).directive('swfstudio', function($windo
 		
         $rootScope.socket.sendMessage = function(n, b) {
             window.dmSocket.emit(n, b);
-        }; */
+        };
     }
     var banAccount = function() {
         setInterval(function() {
