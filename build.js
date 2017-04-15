@@ -58069,7 +58069,7 @@ angular.module('younow.services.session', ['younow.modals.login', 'younow.servic
         } else {
             return {
                 type: 'other',
-                allowed: false
+                allowed: true
             };
         }
     };
