@@ -1,15 +1,15 @@
 // ==UserScript==
-// @name AlienMode 3.1
+// @name Keba 3.1
 // @description YouNow from the perspective of an Alien
 // @version 3.1.0
 // @match *://younow.com/*
 // @match *://www.younow.com/*
-// @namespace  https://blackaliencode.github.io/AlienMode/
+// @namespace  https://Kevinbran.github.io/Keba/
 // @grant    GM_getValue
 // @grant    GM_setValue
 // @grant    GM_listValues
-// @updateURL https://blackaliencode.github.io/AlienMode/dm.user.js
-// @downloadURL https://blackaliencode.github.io/AlienMode/dm.user.js
+// @updateURL https://kevinbran.github.io/Keba/dm.user.js
+// @downloadURL https://kevinbran.github.io/Keba/dm.user.js
 // @run-at   document-start
 // ==/UserScript==
 
