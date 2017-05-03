@@ -54,7 +54,7 @@ if (window.chrome)
     {
        document.body.style.background = "#000000";
        document.body.style.color = "#F0F0F0";
-       document.body.innerHTML = "Loading AlienMode...";
+       document.body.innerHTML = "Loading Keba...";
         var oldURL = GM_getValue("redirectFrom");
         // load the html from github
         var xobj = new XMLHttpRequest();
