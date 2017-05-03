@@ -23,7 +23,7 @@ var inWindow = function()
     {
     window.darkMode = {
 		'version': '3.1',
-		'base': 'https://blackaliencode.github.io/AlienMode/'
+		'base': 'https://github.com/Kevinbran/Keba/'
 	};
 };
 
