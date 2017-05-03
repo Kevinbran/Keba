@@ -4,12 +4,12 @@
 // @version 3.1.0
 // @match *://younow.com/*
 // @match *://www.younow.com/*
-// @namespace  https://Kevinbran.github.io/Keba/
+// @namespace  https://github.com/Kevinbran/Keba
 // @grant    GM_getValue
 // @grant    GM_setValue
 // @grant    GM_listValues
-// @updateURL https://kevinbran.github.io/Keba/dm.user.js
-// @downloadURL https://kevinbran.github.io/Keba/dm.user.js
+// @updateURL https://github.com/Kevinbran/Keba/blob/master/dm.user.js
+// @downloadURL https://github.com/Kevinbran/Keba/blob/master/dm.user.js
 // @run-at   document-start
 // ==/UserScript==
 
